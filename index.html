@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>TASK 1</h2>
+    <button id="calculateButton">Calculate Even Sum</button>
+    <br />
+    <h2>TASK 2</h2>
+    <button onclick="printFizzBuzz()">Print FizzBuzz</button>
+    <br />
+    <h2>TASK 3</h2>
+    <button onclick="onClickHandler()">Display Car Information</button>
+    <br />
+    <h2>TASK 4</h2>
+    <button
+      onclick="sortStrings(['banana', 'mango', 'apple']).forEach(str => console.log(str))">Sort Strings</button>
+    <br />
+    <h2>TASK 5</h2>
+    <button onclick="executeFunction()">Show inhertance concept</button>
+
+    <script>
+      // <!-- TASK 1 -->
+      function calculateEvenSum(numbers) {
+        let sum = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+          if (numbers[i] % 2 === 0) {
+            sum += numbers[i];
+          }
+        }
+
+        return sum;
+      }
+
+      document.getElementById("calculateButton").onclick = function () {
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const evenSum = calculateEvenSum(numbers);
+        console.log("Sum of even numbers:", evenSum);
+      };
+
+      // TASK 2
+      function printFizzBuzz() {
+        for (let i = 1; i <= 100; i++) {
+          if (i % 3 === 0 && i % 5 === 0) {
+            console.log("FizzBuzz");
+          } else if (i % 3 === 0) {
+            console.log("Fizz");
+          } else if (i % 5 === 0) {
+            console.log("Buzz");
+          } else {
+            console.log(i);
+          }
+        }
+      }
+
+      //    TASK 3
+      const car = {
+        make: "Toyota",
+        model: "Corolla",
+        year: 2020,
+      };
+
+      function displayCarInfo(car) {
+        for (let property in car) {
+          console.log(`${property}: ${car[property]}`);
+        }
+      }
+      function onClickHandler() {
+        displayCarInfo(car);
+      }
+
+      // TASK 4
+      const sortStrings = (arr) => arr.sort();
+
+      // TASK 5
+      function executeFunction() {
+        class Parents {
+          constructor(id, name, subject, classs, age) {
+            this.id = id;
+            this.name = name;
+            this.subject = subject;
+            this.classs = classs;
+            this.age = age;
+          }
+          message() {
+            console.log("Heya");
+          }
+        }
+
+        class Child extends Parents {
+          constructor(id, name, subject, classs, age) {
+            super(id, name, subject, classs, age);
+          }
+        }
+
+        let parent = new Parents(1, "Zamin", "JS", "C2", 45);
+        let child = new Child(2, "Abbas", "PHP", "F1", 6);
+        child.skills = "Python";
+        console.log(parent);
+        console.log(child);
+      }
+    </script>
+  </body>
+</html>
